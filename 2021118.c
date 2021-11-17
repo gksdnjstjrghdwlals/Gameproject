@@ -290,6 +290,7 @@ int crash(int* map, int x, int y);
 void print_map();
 void input_map();
 
+//baceCì™€ ê°™ì€ í•¨ìˆ˜ì´ë‚˜ ì•„ë¬´ì¼ë„ ì¼ì–´ë‚˜ì§€ ì•ŠëŠ”ë‹¤
 void input_map(int map[][WIDTH], int F_height, int L_height, int F_width, int L_width) {
 	int i2 = 0, k2 = 0;
 	for (int i = F_height; i < L_height; i++) {
@@ -305,7 +306,7 @@ void input_map(int map[][WIDTH], int F_height, int L_height, int F_width, int L_
 
 
 
-void change_color(int color_number) //ÄÜ¼Ö Ãâ·Â»ö»ó ³ªÅ¸³»´Â ÇÔ¼ö
+void change_color(int color_number) //ì½˜ì†” ì¶œë ¥ìƒ‰ìƒ ë‚˜íƒ€ë‚´ëŠ” í•¨ìˆ˜
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color_number);
 }
@@ -318,8 +319,8 @@ void gotoxy(int x, int y)
 
 
 }
-//¹æÇâÅ°¸¦ °è¼Ó ´­·¯¼­ ÁøÇàÇÏ·Á¸é ¿À·ù°¡ ¹ß»ıÇÔ
-//ÈçÀûÀ» ³²°åÀ» ¶§ °°ÀÌ ¹®Á¦°¡ ¹ß»ıÇÏ´Â °ÍÀ¸·Î »ı°¢ÇÔ
+//ë°©í–¥í‚¤ë¥¼ ê³„ì† ëˆŒëŸ¬ì„œ ì§„í–‰í•˜ë ¤ë©´ ì˜¤ë¥˜ê°€ ë°œìƒí•¨
+//í”ì ì„ ë‚¨ê²¼ì„ ë•Œ ê°™ì´ ë¬¸ì œê°€ ë°œìƒí•˜ëŠ” ê²ƒìœ¼ë¡œ ìƒê°í•¨
 void move() {
 	int x = 2;
 	int y = 2;
@@ -339,7 +340,7 @@ void move() {
 				printf(" ");
 				y -= 1;
 				gotoxy(x, y);
-				//À§¿¡ ÀÖ´Â ÇÔ¼ö·Î ÈçÀûÀ» ¾ø¾Ø´Ù.
+				//ìœ„ì— ìˆëŠ” í•¨ìˆ˜ë¡œ í”ì ì„ ì—†ì•¤ë‹¤.
 				printf("@");
 				break;
 
@@ -380,7 +381,7 @@ int crash(int (*map) [30], int x, int y) {
 	//else if (*(*(map + y) + x) == 2) {
 		//check = 1;
 	//}
-	//¸÷Ãæµ¹
+	//ëª¹ì¶©ëŒ
 	else {
 		check = 0; 
 	} 

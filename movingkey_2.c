@@ -8,10 +8,7 @@
 
 
 
-int totalmap[30][30] = { {0}, {0}
-	
-
-};
+int totalmap[30][30] = { {0}, {0} };
 //플레이어 위치
 int Px = 15, Py =15;
 
@@ -19,10 +16,8 @@ void change_color(int color_number);
 void gotoxy(int x, int y);
 void Pmove();
 void Player();
-int crash(int* map, int x, int y);
-void print_map();
-void baseC();
-void double_buff_render();
+void baseC(int map[][WIDTH],int Lheight, int Hheight, int Lwidth, int Hwidth);
+
 int randomize();
 void L_Dcraft();
 void L_Ucraft();
@@ -30,23 +25,6 @@ void R_Dcraft();
 void R_Ucraft();
 
 void TMP(int map[][30], int height, int width);
-
-int keeper(int(*map)[36], int X, int Y);
-
-int keeper(int(*map)[36], int X, int Y) {
-
-	int checker;
-
-	if (*(*(map + Y) + X) == 0) {
-		checker = 1;
-	}
-	else if (*(*(map + Y) + X) == 2) {
-		checker = 1;
-	}
-	else { checker = 0; }
-
-	return checker;
-}
 
 
 void baseC(int map[][WIDTH], int Lheight, int Hheight, int Lwidth, int Hwidth) {//int로 바꾼다

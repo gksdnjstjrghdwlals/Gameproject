@@ -6,12 +6,13 @@
 #include <time.h>
 #include "map.h"
 
-
+int premise = 1;//스테이지
 
 int totalmap[30][30] = { {0}, {0} };
 //플레이어 위치
 int Px = 15, Py =15;
-
+int Bpx, Bpy;
+int BART_CLEAR_CNT = 0;
 void change_color(int color_number);
 void gotoxy(int x, int y);
 void Pmove();
@@ -39,6 +40,7 @@ void baseC(int map[][WIDTH], int Lheight, int Hheight, int Lwidth, int Hwidth) {
 		i2++;
 	}
 }
+
 void db_saving(int buffmap[][TWIDTH]) {//int로 바꾼다
 	
 	
@@ -66,6 +68,10 @@ void double_buff() {
 				}else if (backbuff[i][j] == 0) {
 					gotoxy(j * 2, i);
 					printf("  ");
+				}
+				else if (backbuff[i][j] == 3) {
+					gotoxy(j * 2, i);
+					printf("♨");
 				}
 			}
 		}
@@ -184,8 +190,6 @@ void gotoxy(int x, int y)
 	Cur.X = x;
 	Cur.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-
 }
 
 void Player() {
@@ -237,7 +241,7 @@ void Pmove() {
 			
 			break;
 		}
-		totalmap[tmpy][tmpx] = 0;
+		totalmap[tmpy][tmpx] = 3;
 	}
 	
 }
@@ -264,6 +268,39 @@ void initialize() {
 	
 }
 
+int bart_detect() {
+	BART_CLEAR_CNT = 0;
+	for (int i = 0; i < THEIGHT; i++) {
+
+		for (int j = 0; j < TWIDTH; j++) {
+			if (totalmap[i][j] == 3) {
+				BART_CLEAR_CNT++;
+				if (BART_CLEAR_CNT == 10) {//임시함수, 봇과 대결하여 더많을시에 스테이지 클리어로 개조할것-
+					premise = 0;
+					
+				}
+			}
+		}
+	}
+	
+}
+
+void timer() {
+	clock_t start = clock();
+	clock_t end = clock();
+	int time = ((int)end - start / CLOCKS_PER_SEC) / 1000; //초단위 변환
+
+
+	if (time == 10) {
+		premise = 0;
+	}
+
+		
+	
+}
+
+
+
 int main() {
 	
 	//initialize
@@ -271,10 +308,12 @@ int main() {
 	//------------------
 	//아마 while문
 	Player();
-	TMP(totalmap, 30, 30);//이것도 임시... 초기화에 넣어야하나? 일단은 움ㅁ직임
+	TMP(totalmap, 30, 30);//이것도 임시... 초기화에 넣어야하나? 일단은 움직임
 	
-	while (1) {
+	while (premise) {
 		{
+			bart_detect();//이함수를 카운터 함수에 넣고 일정시간이 지나면 스테이지 클리어로 진
+			timer();
 			db_saving(frontbuff);
 			/*TMP(frontbuff, TWIDTH, THEIGHT);*/
 			//프론트버퍼 상태저장
@@ -287,8 +326,8 @@ int main() {
 			//system("cls");//이건 임시
 		}
 	}
-	
-
+	printf("스테이지 클리어");
+	//일단 기본적인 틀은 만들어졌다
 	//한개의 씬 끝
 
 };

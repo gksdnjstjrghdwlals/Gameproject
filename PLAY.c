@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <windows.h>
@@ -67,7 +68,11 @@ void LbaseC(int map[][10], int Lheight, int Hheight, int Lwidth, int Hwidth);
 
 
 void LTMP(int map[][20], int height, int width);
+char name[10];
 
+void opening();
+char input_name();
+void finish(int BART_CLEAR_CNT, int AI_BART_CLEAR_CNT);
 void baseC(int map[][WIDTH], int Lheight, int Hheight, int Lwidth, int Hwidth) {//int로 바꾼다
 	//일정구간을 최종 맵저장소에 저장
 	int i2 = 0, j2 = 0;
@@ -1069,111 +1074,178 @@ void timer1() {
 
 
 }
+char input_name() {
+	printf("이름을 입력하세요. : ");
+	scanf("%s", &name);
+	printf("안녕하세요 %s 님\n", name);
+	return name;
+}
+void opening() {
+	printf("멈출 수 없는 방구 추진력을 가진 용사 이야기.....\n");
+	Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+	Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+	printf("스토리 어쩌구 저쩌구.....");
+	Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+	Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+	printf("게임을 시작합니다.");
+}
+void finish(int BART_CLEAR_CNT, int AI_BART_CLEAR_CNT) {
+	if (BART_CLEAR_CNT <= AI_BART_CLEAR_CNT) {
+		printf("결국 %s는 적을 이기지 못하고 잠들어버렸다......", name);
+
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		change_color(4);
+		printf("\n  ■■■■■     ■■■       ■■       ■■ ■■■■■■■      ■■■■■■■   ■■     ■■ ■■■■■■■ ■■■■■■■■ ");	Sleep(100);
+		printf("\n■■    ■■    ■■ ■■     ■■■   ■■■ ■■              ■■          ■■ ■■     ■■ ■■           ■■          ■■");	Sleep(100);
+		printf("\n■■           ■■   ■■    ■■■■ ■■■ ■■              ■■          ■■ ■■     ■■ ■■           ■■          ■■");	Sleep(100);
+		printf("\n■■   ■■■  ■■■  ■■   ■■  ■■ ■■ ■■■■■■      ■■          ■■ ■■     ■■ ■■■■■     ■■■■■■■■ ");	Sleep(100);
+		printf("\n■■    ■■   ■■■■■■■ ■■       ■■ ■■              ■■          ■■  ■■   ■■  ■■           ■■      ■■     ");	Sleep(100);
+		printf("\n■■    ■■   ■■     ■■  ■■       ■■ ■■              ■■          ■■   ■■ ■■   ■■           ■■        ■■ ");	Sleep(100);
+		printf("\n ■■■■■■  ■■     ■■  ■■       ■■ ■■■■■■■      ■■■■■■■       ■■■    ■■■■■■■ ■■          ■■");	Sleep(100);
+
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+	}
+	else if (BART_CLEAR_CNT > AI_BART_CLEAR_CNT) {
+		printf("적을 무찌른 %s는 다음 장소로 향하는데.........", name);
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");		Sleep(100);		printf("\n");
+	}
+
+}
 int main() {
+	input_name();
+	opening();
+	system("cls");
 	//프로그램의 실행 제어
 	while (RUN) {
-		////initialize
-		//initialize();
-		////------------------
-		////아마 while문
+		//initialize
+		initialize();
+		//------------------
+		//아마 while문
 
-		//TMP(totalmap, 30, 30);//이것도 임시... 초기화에 넣어야하나? 일단은 움직임
+		TMP(totalmap, 30, 30);//이것도 임시... 초기화에 넣어야하나? 일단은 움직임
 
-		//while (premise) {
-		//	{
+		while (premise) {
+			{
 
-		//		timer();
-		//		db_saving(frontbuff);
+				timer();
+				db_saving(frontbuff);
 
-		//		/*TMP(frontbuff, TWIDTH, THEIGHT);*/
-		//		//프론트버퍼 상태저장
-		//		AI();
-		//		Player();//이상없음 작동잘됨
-		//		//모든 처리가 끝난후 백버퍼 상태저장 
-		//		db_saving(backbuff);
-		//		/*TMP(backbuff, TWIDTH, THEIGHT);*/
-		//		double_buff();//불완성 강의참조요함
-		//		/*TMP(totalmap, TWIDTH, THEIGHT);*///이거 백버퍼문제다
-		//		//system("cls");//이건 임시
+				/*TMP(frontbuff, TWIDTH, THEIGHT);*/
+				//프론트버퍼 상태저장
+				AI();
+				Player();//이상없음 작동잘됨
+				//모든 처리가 끝난후 백버퍼 상태저장 
+				db_saving(backbuff);
+				/*TMP(backbuff, TWIDTH, THEIGHT);*/
+				double_buff();//불완성 강의참조요함
+				/*TMP(totalmap, TWIDTH, THEIGHT);*///이거 백버퍼문제다
+				//system("cls");//이건 임시
 
-		//		//시간이 끝난후 플레이어의 흔적이 더많을때
+				//시간이 끝난후 플레이어의 흔적이 더많을때
 
-		//	}
-		//}
-		//gotoxy(31, 31);
-		//printf("\n");
-		//change_color(11);
-		//if (gameover == 1) {
-		//	printf("게임오버\n");
-		//	Sleep(3000);
-		//	premise = 1;
+			}
+		}
+		gotoxy(31, 31);
+		printf("\n");
+		change_color(11);
+		if (gameover == 1) {
+			printf("게임오버\n");
+			Sleep(3000);
+			premise = 1;
 
-		//}
-		//printf("스테이지 클리어\n");
-		//printf("봇의 흔적 %d개\n", AI_BART_CLEAR_CNT);
-		//printf("사람의 흔적 %d개\n", BART_CLEAR_CNT);
-		//Sleep(3000);
-		//premise = 1;
-		//BART_CLEAR_CNT = 0;
-		//AI_BART_CLEAR_CNT = 0;
+		}
+		printf("스테이지 클리어\n");
+		printf("봇의 흔적 %d개\n", AI_BART_CLEAR_CNT);
+		printf("사람의 흔적 %d개\n", BART_CLEAR_CNT);
+		Sleep(3000);
+		premise = 1;
 
-		////일단 기본적인 틀은 만들어졌다
-		////한개의 씬 끝
-		//system("cls");
+		finish(BART_CLEAR_CNT, AI_BART_CLEAR_CNT);
+		BART_CLEAR_CNT = 0;
+		AI_BART_CLEAR_CNT = 0;
 
-
-
-		//Px = 15, Py = 15;
-		////인공지능 관련
-		//Ax = 7, Ay = 7;
-		//Minitialize();
-		////------------------
-		////아마 while문
-
-		//MTMP(Mtotalmap, 20, 20);//이것도 임시... 초기화에 넣어야하나? 일단은 움직임
+		//일단 기본적인 틀은 만들어졌다
+		//한개의 씬 끝
+		system("cls");
 
 
-		//while (premise) {
-		//	{
 
-		//		timer1();
-		//		Mdb_saving(mfrontbuff);
+		Px = 15, Py = 15;
+		//인공지능 관련
+		Ax = 7, Ay = 7;
+		Minitialize();
+		//------------------
+		//아마 while문
 
-		//		/*TMP(frontbuff, TWIDTH, THEIGHT);*/
-		//		//프론트버퍼 상태저장
-		//		MAI();
-		//		MPlayer();//이상없음 작동잘됨
-		//		//모든 처리가 끝난후 백버퍼 상태저장 
-		//		Mdb_saving(mbackbuff);
-		//		/*TMP(backbuff, TWIDTH, THEIGHT);*/
-		//		Mdouble_buff();//불완성 강의참조요함
-		//		/*TMP(totalmap, TWIDTH, THEIGHT);*///이거 백버퍼문제다
-		//		//system("cls");//이건 임시
+		MTMP(Mtotalmap, 20, 20);//이것도 임시... 초기화에 넣어야하나? 일단은 움직임
 
-		//		//시간이 끝난후 플레이어의 흔적이 더많을때
 
-		//	}
-		//}
-		//gotoxy(31, 31);
-		//printf("\n");
-		//change_color(11);
-		//if (gameover == 1) {
-		//	printf("게임오버\n");
-		//	Sleep(3000);
-		//	premise = 1;
+		while (premise) {
+			{
 
-		//}
-		//printf("스테이지 클리어\n");
-		//printf("봇의 흔적 %d개\n", AI_BART_CLEAR_CNT);
-		//printf("사람의 흔적 %d개\n", BART_CLEAR_CNT);
-		//Sleep(3000);
-		//premise = 1;
-		//BART_CLEAR_CNT = 0;
-		//AI_BART_CLEAR_CNT = 0;
+				timer1();
+				Mdb_saving(mfrontbuff);
 
-		////일단 기본적인 틀은 만들어졌다
-		////한개의 씬 끝
-		//system("cls");
+				/*TMP(frontbuff, TWIDTH, THEIGHT);*/
+				//프론트버퍼 상태저장
+				MAI();
+				MPlayer();//이상없음 작동잘됨
+				//모든 처리가 끝난후 백버퍼 상태저장 
+				Mdb_saving(mbackbuff);
+				/*TMP(backbuff, TWIDTH, THEIGHT);*/
+				Mdouble_buff();//불완성 강의참조요함
+				/*TMP(totalmap, TWIDTH, THEIGHT);*///이거 백버퍼문제다
+				//system("cls");//이건 임시
+
+				//시간이 끝난후 플레이어의 흔적이 더많을때
+
+			}
+		}
+		gotoxy(31, 31);
+		printf("\n");
+		change_color(11);
+		if (gameover == 1) {
+			printf("게임오버\n");
+			Sleep(3000);
+			premise = 1;
+
+		}
+		printf("스테이지 클리어\n");
+		printf("봇의 흔적 %d개\n", AI_BART_CLEAR_CNT);
+		printf("사람의 흔적 %d개\n", BART_CLEAR_CNT);
+		Sleep(3000);
+		premise = 1;
+		finish(BART_CLEAR_CNT, AI_BART_CLEAR_CNT);
+		BART_CLEAR_CNT = 0;
+		AI_BART_CLEAR_CNT = 0;
+
+		//일단 기본적인 틀은 만들어졌다
+		//한개의 씬 끝
+		system("cls");
 
 
 		Px = 5, Py = 5;
@@ -1222,6 +1294,7 @@ int main() {
 		printf("사람의 흔적 %d개\n", BART_CLEAR_CNT);
 		Sleep(3000);
 		premise = 1;
+		finish(BART_CLEAR_CNT, AI_BART_CLEAR_CNT);
 		BART_CLEAR_CNT = 0;
 		AI_BART_CLEAR_CNT = 0;
 

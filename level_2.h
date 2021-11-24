@@ -1,6 +1,6 @@
 
-void baseC2(int map[][WIDTH2], int Lheight, int Hheight, int Lwidth, int Hwidth) {//int·Î ¹Ù²Û´Ù
-	//ÀÏÁ¤±¸°£À» ÃÖÁ¾ ¸ÊÀúÀå¼Ò¿¡ ÀúÀå
+void baseC2(int map[][WIDTH2], int Lheight, int Hheight, int Lwidth, int Hwidth) {//intë¡œ ë°”ê¾¼ë‹¤
+	//ì¼ì •êµ¬ê°„ì„ ìµœì¢… ë§µì €ì¥ì†Œì— ì €ì¥
 	int i2 = 0, j2 = 0;
 	for (int i = Lheight; i < Hheight; i++) {
 		j2 = 0;
@@ -12,7 +12,7 @@ void baseC2(int map[][WIDTH2], int Lheight, int Hheight, int Lwidth, int Hwidth)
 	}
 }
 
-void db_saving2(int buffmap[][TWIDTH2]) {//int·Î ¹Ù²Û´Ù
+void db_saving2(int buffmap[][TWIDTH2]) {//intë¡œ ë°”ê¾¼ë‹¤
 
 
 	for (int i = 0; i < THEIGHT2; i++) {
@@ -23,20 +23,20 @@ void db_saving2(int buffmap[][TWIDTH2]) {//int·Î ¹Ù²Û´Ù
 		}
 
 	}
-}//ÇöÀçÀÇ ¸Ê»óÅÂ¸¦ ¹öÆÛ¿¡ ÀúÀåÇÏ´Â ÇÔ¼ö
+}//í˜„ì¬ì˜ ë§µìƒíƒœë¥¼ ë²„í¼ì— ì €ì¥í•˜ëŠ” í•¨ìˆ˜
 
 void double_buff2() {
 	int tmpx2 = 0, tmpy2 = 0;
-	//¹éÆÛ¹ö¿Í ÇÁ·ĞÆ®¹öÆÛ¸¦ ºñ±³
-	//¹é¹öÆÛ != ÇÁ·ĞÆ®¹öÆÛ
-	//ÇÁ·ĞÆ®¹öÆÛ¿¡ ÀÖ´Â °É ±×¸®°í ¹é¹öÆÛ¿¡ ÇØ´çÇÏ´Â ÁÂÇ¥ÀÇ °ªÀ» "  "À¸·Î Áö¿î´Ù.
+	//ë°±í¼ë²„ì™€ í”„ë¡ íŠ¸ë²„í¼ë¥¼ ë¹„êµ
+	//ë°±ë²„í¼ != í”„ë¡ íŠ¸ë²„í¼
+	//í”„ë¡ íŠ¸ë²„í¼ì— ìˆëŠ” ê±¸ ê·¸ë¦¬ê³  ë°±ë²„í¼ì— í•´ë‹¹í•˜ëŠ” ì¢Œí‘œì˜ ê°’ì„ "  "ìœ¼ë¡œ ì§€ìš´ë‹¤.
 	for (int i = 0; i < THEIGHT2; i++) {
 		for (int j = 0; j < TWIDTH2; j++) {
 			if (backbuff2[i][j] != frontbuff2[i][j]) {
 				if (backbuff2[i][j] == 2) {
 					gotoxy(j * 2, i);
 					change_color(5);
-					printf("¡İ");
+					printf("â—");
 				}
 				else if (backbuff2[i][j] == 0) {
 					gotoxy(j * 2, i);
@@ -45,25 +45,25 @@ void double_buff2() {
 				else if (backbuff2[i][j] == 3) {
 					gotoxy(j * 2, i);
 					change_color(2);
-					printf("¢Í");
+					printf("â™¨");
 				}
 				else if (backbuff2[i][j] == 5) {
 					gotoxy(j * 2, i);
 					change_color(15);
-					printf("¡Ù");
+					printf("â˜†");
 				}
 				else if (backbuff2[i][j] == 6) {
 					gotoxy(j * 2, i);
 					change_color(12);
-					printf("¡Ú");
+					printf("â˜…");
 				}
 			}
 		}
 	}
-}//2´Ü°è¿¡ »ç¿ëµÇ´Â ¹öÆÛ·»´õ
+}//2ë‹¨ê³„ì— ì‚¬ìš©ë˜ëŠ” ë²„í¼ë Œë”
 
 void L_Ucraft2() {
-	//¿ŞÂÊ À§ ¸Ê ¼±ÅÃ
+	//ì™¼ìª½ ìœ„ ë§µ ì„ íƒ
 	int select = randomize();
 	if (select <= 2) {
 		baseC2(left2_u1, 0, 10, 0, 10);
@@ -77,13 +77,13 @@ void L_Ucraft2() {
 	else if (select > 6 && select <= 8) {
 		baseC2(left2_u1, 0,10, 0, 10);
 	}
-	//¸Ê Ãß°¡ÇØ¾ßÇÔ
+	//ë§µ ì¶”ê°€í•´ì•¼í•¨
 
 
 
 }
 void L_Dcraft2() {
-	//¿ŞÂÊ ¾Æ·¡ ¸Ê ¼±ÅÃ
+	//ì™¼ìª½ ì•„ë˜ ë§µ ì„ íƒ
 	int select = randomize();
 	if (select <= 2) {
 		baseC2(left2_d1, 10, 20, 0, 10);
@@ -100,7 +100,7 @@ void L_Dcraft2() {
 
 }
 void R_Dcraft2() {
-	//¿À¸¥ÂÊ ¾Æ·¡ ¸Ê ¼±ÅÃ
+	//ì˜¤ë¥¸ìª½ ì•„ë˜ ë§µ ì„ íƒ
 	int select = randomize();
 	if (select <= 2) {
 		baseC2(right2_d1, 10, 20, 10, 20);
@@ -117,7 +117,7 @@ void R_Dcraft2() {
 
 }
 void R_Ucraft2() {
-	//¿À¸¥ÂÊ À§ ¸Ê ¼±ÅÃ
+	//ì˜¤ë¥¸ìª½ ìœ„ ë§µ ì„ íƒ
 	int select = randomize();
 	if (select <= 2) {
 		baseC2(right2_u1, 0, 10, 10, 20);
@@ -134,13 +134,13 @@ void R_Ucraft2() {
 
 }
 
-void TMP2(int map[][TWIDTH2], int height, int width) {//int·Î ¹Ù²Û´Ù
+void TMP2(int map[][TWIDTH2], int height, int width) {//intë¡œ ë°”ê¾¼ë‹¤
 
 	for (int i = 0; i < height; i++) {
-		for (int j = 0; j < width; j++) {//Á¶°Ç¹®À¸·Î °¢ µğÁöÅĞ°ª¿¡ µû¸¥ ¹®ÀÚ¸¦ Ãâ·ÂÇÑ´Ù.
+		for (int j = 0; j < width; j++) {//ì¡°ê±´ë¬¸ìœ¼ë¡œ ê° ë””ì§€í„¸ê°’ì— ë”°ë¥¸ ë¬¸ìë¥¼ ì¶œë ¥í•œë‹¤.
 			if (map[i][j] == 1) {
 				change_color(6);
-				printf("¡á");
+				printf("â– ");
 			}
 			else if (map[i][j] == 0) {
 
@@ -148,7 +148,7 @@ void TMP2(int map[][TWIDTH2], int height, int width) {//int·Î ¹Ù²Û´Ù
 			}
 			else if (map[i][j] == 2) {
 
-				printf("¡İ");
+				printf("â—");
 			}
 
 		}
@@ -156,7 +156,7 @@ void TMP2(int map[][TWIDTH2], int height, int width) {//int·Î ¹Ù²Û´Ù
 	}
 }
 void Player2() {
-	//{À§,¾Æ·¡,¿Ş,¿À}
+	//{ìœ„,ì•„ë˜,ì™¼,ì˜¤}
 
 	Pmove2();
 }
@@ -168,13 +168,14 @@ void Pmove2() {
 	int direction = randomize();
 	totalmap2[Py2][Px2] = 2;
 
-	//ÀÌµ¿
+	//ì´ë™
 	if (_kbhit()) {
 		int keyhit = _getch();
 		switch (keyhit) {
 		case UP:
 			Py2 -= 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(260, 200);
 				Py2 = tmpy;
 			}
 
@@ -183,12 +184,14 @@ void Pmove2() {
 
 			Py2 += 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(260, 200);
 				Py2 = tmpy;
 			}
 			break;
 		case LEFT:
 			Px2 -= 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(260, 200);
 				Px2 = tmpx;
 			}
 
@@ -196,6 +199,7 @@ void Pmove2() {
 		case RIGHT:
 			Px2 += 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(260, 200);
 				Px2 = tmpx;
 			}
 
@@ -249,10 +253,10 @@ void timer2() {
 
 	clock_t start = clock();
 	clock_t end = clock();
-	int time = ((int)end - start / CLOCKS_PER_SEC) / 1000; //ÃÊ´ÜÀ§ º¯È¯
+	int time = ((int)end - start / CLOCKS_PER_SEC) / 1000; //ì´ˆë‹¨ìœ„ ë³€í™˜
 
 
-	if (time == 20) {//´Ù½Ã ½ÇÇàµÉ½Ã¿¡´Â ÀÌ°Ô ÀÛµ¿À» ¾ÈÇÑ´Ù
+	if (time == 20) {//ë‹¤ì‹œ ì‹¤í–‰ë ì‹œì—ëŠ” ì´ê²Œ ì‘ë™ì„ ì•ˆí•œë‹¤
 		bart_detect2();
 		printf("%d", time);
 
@@ -273,50 +277,50 @@ void AI2() {
 
 	if (cnt_ai % 3000 == 0) {
 		if (totalmap2[Ay2][Ax2] != 1) {
-			if (direction == 1) {//À§ 1
+			if (direction == 1) {//ìœ„ 1
 				--Ay2;
 			}
-			else if (direction == 2) {//¾Æ·¡ 2
+			else if (direction == 2) {//ì•„ë˜ 2
 				++Ay2;
 			}
-			else if (direction == 3) {//¿Ş 3
+			else if (direction == 3) {//ì™¼ 3
 				--Ax2;
 			}
-			else if (direction == 4) {//¿À¸¥ 4
+			else if (direction == 4) {//ì˜¤ë¥¸ 4
 				++Ax2;
 			}
 
 		}
-		//À§: 1, ¾Æ·¡: 2, ¿Ş: 3, ¿À: 4
+		//ìœ„: 1, ì•„ë˜: 2, ì™¼: 3, ì˜¤: 4
 		if (totalmap2[Ay2][Ax2] == 1) {
-			if (select <= 2 && confirm_U != 1) {//À§ 1
+			if (select <= 2 && confirm_U != 1) {//ìœ„ 1
 
 				direction = 1;
-				//Àç¼³Á¤
+				//ì¬ì„¤ì •
 				confirm_U = 1;
 				confirm_D = 0;
 				confirm_R = 0;
 				confirm_L = 0;
 			}
-			else if ((select > 2 && select <= 4) && confirm_D != 1) {//¾Æ·¡ 2
+			else if ((select > 2 && select <= 4) && confirm_D != 1) {//ì•„ë˜ 2
 				direction = 2;
-				//Àç¼³Á¤
+				//ì¬ì„¤ì •
 				confirm_U = 0;
 				confirm_D = 1;
 				confirm_R = 0;
 				confirm_L = 0;
 			}
-			else if ((select > 4 && select <= 6) && confirm_L != 1) {//¿Ş 3
+			else if ((select > 4 && select <= 6) && confirm_L != 1) {//ì™¼ 3
 				direction = 3;
-				//Àç¼³Á¤
+				//ì¬ì„¤ì •
 				confirm_U = 0;
 				confirm_D = 0;
 				confirm_R = 0;
 				confirm_L = 1;
 			}
-			else if ((select > 6 && select <= 8) && confirm_R != 1) {//¿À¸¥ 4
+			else if ((select > 6 && select <= 8) && confirm_R != 1) {//ì˜¤ë¥¸ 4
 				direction = 4;
-				//Àç¼³Á¤
+				//ì¬ì„¤ì •
 				confirm_U = 0;
 				confirm_D = 0;
 				confirm_R = 0;
@@ -329,7 +333,7 @@ void AI2() {
 	}
 
 	/*Sleep(500);*/
-	//ÀÌ°É¾²´Ï±î ÇÃ·¹ÀÌ¾îÀÇ ÀÔ·ÂÀÌ ¸¹ÀÌ ´À·ÁÁø´Ù ÀÌ°Í¸»°í µı°É ½á¾ßÇÏ³ª
+	//ì´ê±¸ì“°ë‹ˆê¹Œ í”Œë ˆì´ì–´ì˜ ì…ë ¥ì´ ë§ì´ ëŠë ¤ì§„ë‹¤ ì´ê²ƒë§ê³  ë”´ê±¸ ì¨ì•¼í•˜ë‚˜
 	totalmap2[tmpy][tmpx] = 6;
 	totalmap2[Ay2][Ax2] = 5;
 	cnt_ai++;

@@ -1,5 +1,5 @@
-void baseC(int map[][WIDTH], int Lheight, int Hheight, int Lwidth, int Hwidth) {//intë¡œ ë°”ê¾¼ë‹¤
-	//ì¼ì •êµ¬ê°„ì„ ìµœì¢… ë§µì €ì¥ì†Œì— ì €ì¥
+void baseC(int map[][WIDTH], int Lheight, int Hheight, int Lwidth, int Hwidth) {//int·Î ¹Ù²Û´Ù
+	//ÀÏÁ¤±¸°£À» ÃÖÁ¾ ¸ÊÀúÀå¼Ò¿¡ ÀúÀå
 	int i2 = 0, j2 = 0;
 	for (int i = Lheight; i < Hheight; i++) {
 		j2 = 0;
@@ -12,7 +12,7 @@ void baseC(int map[][WIDTH], int Lheight, int Hheight, int Lwidth, int Hwidth) {
 }
 
 
-void db_saving(int buffmap[][TWIDTH]) {//intë¡œ ë°”ê¾¼ë‹¤
+void db_saving(int buffmap[][TWIDTH]) {//int·Î ¹Ù²Û´Ù
 
 
 	for (int i = 0; i < THEIGHT; i++) {
@@ -23,56 +23,53 @@ void db_saving(int buffmap[][TWIDTH]) {//intë¡œ ë°”ê¾¼ë‹¤
 		}
 
 	}
-}//í˜„ì¬ì˜ ë§µìƒíƒœë¥¼ ë²„í¼ì— ì €ì¥í•˜ëŠ” í•¨ìˆ˜
+}//ÇöÀçÀÇ ¸Ê»óÅÂ¸¦ ¹öÆÛ¿¡ ÀúÀåÇÏ´Â ÇÔ¼ö
 
 
 
 void double_buff() {
 	int tmpx = 0, tmpy = 0;
-	//ë°±í¼ë²„ì™€ í”„ë¡ íŠ¸ë²„í¼ë¥¼ ë¹„êµ
-	//ë°±ë²„í¼ != í”„ë¡ íŠ¸ë²„í¼
-	//í”„ë¡ íŠ¸ë²„í¼ì— ìˆëŠ” ê±¸ ê·¸ë¦¬ê³  ë°±ë²„í¼ì— í•´ë‹¹í•˜ëŠ” ì¢Œí‘œì˜ ê°’ì„ "  "ìœ¼ë¡œ ì§€ìš´ë‹¤.
+	//¹éÆÛ¹ö¿Í ÇÁ·ĞÆ®¹öÆÛ¸¦ ºñ±³
+	//¹é¹öÆÛ != ÇÁ·ĞÆ®¹öÆÛ
+	//ÇÁ·ĞÆ®¹öÆÛ¿¡ ÀÖ´Â °É ±×¸®°í ¹é¹öÆÛ¿¡ ÇØ´çÇÏ´Â ÁÂÇ¥ÀÇ °ªÀ» "  "À¸·Î Áö¿î´Ù.
 	for (int i = 0; i < THEIGHT; i++) {
 		for (int j = 0; j < TWIDTH; j++) {
 			if (backbuff[i][j] != frontbuff[i][j]) {
 				if (backbuff[i][j] == 2) {
 					gotoxy(j * 2, i);
+					Beep(260, 15);
 					change_color(5);
-					printf("â—");
+					printf("¡İ");
+					Beep(220, 15);
 				}
 				else if (backbuff[i][j] == 0) {
 					gotoxy(j * 2, i);
 					printf("  ");
 				}
+				
 				else if (backbuff[i][j] == 3) {
 					gotoxy(j * 2, i);
 					change_color(2);
-					printf("â™¨");
+					printf("¢Í");
 				}
 				else if (backbuff[i][j] == 5) {
 					gotoxy(j * 2, i);
 					change_color(15);
-					printf("â˜†");
+					printf("¡Ù");
 				}
 				else if (backbuff[i][j] == 6) {
 					gotoxy(j * 2, i);
 					change_color(12);
-					printf("â˜…");
+					printf("¡Ú");
 				}
 			}
 		}
 	}
-}//1ë‹¨ê³„ì— ì‚¬ìš©ë˜ëŠ” ë²„í¼ë Œë”
+}//1´Ü°è¿¡ »ç¿ëµÇ´Â ¹öÆÛ·»´õ
 
-int randomize(void) {//ë§µì¡°í•©ì„ ìœ„í•œ ëœë¤ê°’ìƒì„±
-	srand(time(NULL));
-	int random = 0;
-	random = rand() % 8 + 1;//1~10
-	return random;
-}
 
 void L_Ucraft() {
-	//ì™¼ìª½ ìœ„ ë§µ ì„ íƒ
+	//¿ŞÂÊ À§ ¸Ê ¼±ÅÃ
 	int select = randomize();
 	if (select <= 2) {
 		baseC(left_u1, 0, 15, 0, 15);
@@ -86,13 +83,13 @@ void L_Ucraft() {
 	else if (select > 6 && select <= 8) {
 		baseC(left_u1, 0, 15, 0, 15);
 	}
-	//ë§µ ì¶”ê°€í•´ì•¼í•¨
+	//¸Ê Ãß°¡ÇØ¾ßÇÔ
 
 
 
 }
 void L_Dcraft() {
-	//ì™¼ìª½ ì•„ë˜ ë§µ ì„ íƒ
+	//¿ŞÂÊ ¾Æ·¡ ¸Ê ¼±ÅÃ
 	int select = randomize();
 	if (select <= 2) {
 		baseC(left_d1, 15, 30, 0, 15);
@@ -109,7 +106,7 @@ void L_Dcraft() {
 
 }
 void R_Dcraft() {
-	//ì˜¤ë¥¸ìª½ ì•„ë˜ ë§µ ì„ íƒ
+	//¿À¸¥ÂÊ ¾Æ·¡ ¸Ê ¼±ÅÃ
 	int select = randomize();
 	if (select <= 2) {
 		baseC(right_d1, 15, 30, 15, 30);
@@ -126,7 +123,7 @@ void R_Dcraft() {
 
 }
 void R_Ucraft() {
-	//ì˜¤ë¥¸ìª½ ìœ„ ë§µ ì„ íƒ
+	//¿À¸¥ÂÊ À§ ¸Ê ¼±ÅÃ
 	int select = randomize();
 	if (select <= 2) {
 		baseC(right_u1, 0, 15, 15, 30);
@@ -144,13 +141,13 @@ void R_Ucraft() {
 }
 
 
-void TMP(int map[][TWIDTH], int height, int width) {//intë¡œ ë°”ê¾¼ë‹¤
+void TMP(int map[][TWIDTH], int height, int width) {//int·Î ¹Ù²Û´Ù
 
 	for (int i = 0; i < height; i++) {
-		for (int j = 0; j < width; j++) {//ì¡°ê±´ë¬¸ìœ¼ë¡œ ê° ë””ì§€í„¸ê°’ì— ë”°ë¥¸ ë¬¸ìë¥¼ ì¶œë ¥í•œë‹¤.
+		for (int j = 0; j < width; j++) {//Á¶°Ç¹®À¸·Î °¢ µğÁöÅĞ°ª¿¡ µû¸¥ ¹®ÀÚ¸¦ Ãâ·ÂÇÑ´Ù.
 			if (map[i][j] == 1) {
 				change_color(6);
-				printf("â– ");
+				printf("¡á");
 			}
 			else if (map[i][j] == 0) {
 
@@ -158,7 +155,7 @@ void TMP(int map[][TWIDTH], int height, int width) {//intë¡œ ë°”ê¾¼ë‹¤
 			}
 			else if (map[i][j] == 2) {
 
-				printf("â—");
+				printf("¡İ");
 			}
 
 		}
@@ -167,21 +164,10 @@ void TMP(int map[][TWIDTH], int height, int width) {//intë¡œ ë°”ê¾¼ë‹¤
 }
 
 
-void change_color(int color_number) //ì½˜ì†” ì¶œë ¥ìƒ‰ìƒ ë‚˜íƒ€ë‚´ëŠ” í•¨ìˆ˜
-{
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color_number);
-}
 
-void gotoxy(int x, int y)
-{
-	COORD Cur;
-	Cur.X = x;
-	Cur.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-}
 
 void Player() {
-	//{ìœ„,ì•„ë˜,ì™¼,ì˜¤}
+	//{À§,¾Æ·¡,¿Ş,¿À}
 
 	Pmove();
 }
@@ -192,14 +178,14 @@ void Pmove() {
 	int direction = randomize();
 	totalmap[Py][Px] = 2;
 
-	//ì´ë™
+	//ÀÌµ¿
 	if (_kbhit()) {
+		
 		int keyhit = _getch();
 		switch (keyhit) {
 		case UP:
 			Py -= 1;
 			if (totalmap[Py][Px] == 1) {
-				Beep(260, 200);
 				Py = tmpy;
 			}
 
@@ -208,14 +194,12 @@ void Pmove() {
 
 			Py += 1;
 			if (totalmap[Py][Px] == 1) {
-				Beep(260, 200);
 				Py = tmpy;
 			}
 			break;
 		case LEFT:
 			Px -= 1;
 			if (totalmap[Py][Px] == 1) {
-				Beep(260, 200);
 				Px = tmpx;
 			}
 
@@ -223,7 +207,6 @@ void Pmove() {
 		case RIGHT:
 			Px += 1;
 			if (totalmap[Py][Px] == 1) {
-				Beep(260, 200);
 				Px = tmpx;
 			}
 
@@ -232,21 +215,13 @@ void Pmove() {
 		totalmap[tmpy][tmpx] = 3;
 	}
 }
-//í‚¤ì…ë ¥ì— ë”°ë¥¸ ì›€ì§ì„
+//Å°ÀÔ·Â¿¡ µû¸¥ ¿òÁ÷ÀÓ
 
 
-
-void Cursorhide() {
-	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-	CONSOLE_CURSOR_INFO ConsoleCursor;
-	ConsoleCursor.bVisible = 0;
-	ConsoleCursor.dwSize = 1;
-	SetConsoleCursorInfo(consoleHandle, &ConsoleCursor);
-}
 
 void initialize() {
 	Cursorhide();
-
+	timeTick = 0;
 	L_Dcraft();
 	L_Ucraft();
 	R_Ucraft();
@@ -256,7 +231,7 @@ void initialize() {
 }
 
 
-int bart_detect() {
+void bart_detect() {
 
 	for (int i = 0; i < THEIGHT; i++) {
 
@@ -285,93 +260,78 @@ int bart_detect() {
 
 }
 
-void timer() {
 
-	clock_t start = clock();
-	clock_t end = clock();
-	int time = ((int)end - start / CLOCKS_PER_SEC) / 1000; //ì´ˆë‹¨ìœ„ ë³€í™˜
-
-
-	if (time == 5) {//ë‹¤ì‹œ ì‹¤í–‰ë ì‹œì—ëŠ” ì´ê²Œ ì‘ë™ì„ ì•ˆí•œë‹¤
-		bart_detect();
-		printf("%d", time);
-
-	}
-	
-
-
-
-}
-
-void AI() {
+void AI(int *Ax, int *Ay, int *direction, int *confirm_U, int* confirm_D, int *confirm_R, int *confirm_L) {
 	int tmpx = 0;
 	int tmpy = 0;
 
 	int select = randomize();
-	int lazy = randomize();
-	tmpx = Ax;
-	tmpy = Ay;
+	
+	tmpx = *Ax;
+	tmpy = *Ay;
 
-	if (cnt_ai % 3000 == 0) {
-		if (totalmap[Ay][Ax] != 1) {
-			if (direction == 1) {//ìœ„ 1
-				--Ay;
+	if (cnt_ai %3000 == 0) {
+		if (totalmap[*Ay][*Ax] != 1) {
+			if (*direction == 1) {//À§ 1
+				
+				--*Ay;
 			}
-			else if (direction == 2) {//ì•„ë˜ 2
-				++Ay;
+			else if (*direction == 2) {//¾Æ·¡ 2
+				++*Ay;
 			}
-			else if (direction == 3) {//ì™¼ 3
-				--Ax;
+			else if (*direction == 3) {//¿Ş 3
+				--*Ax;
 			}
-			else if (direction == 4) {//ì˜¤ë¥¸ 4
-				++Ax;
+			else if (*direction == 4) {//¿À¸¥ 4
+				++*Ax;
 			}
 
 		}
-		//ìœ„: 1, ì•„ë˜: 2, ì™¼: 3, ì˜¤: 4
-		if (totalmap[Ay][Ax] == 1) {
-			if (select <= 2 && confirm_U != 1) {//ìœ„ 1
+		//À§: 1, ¾Æ·¡: 2, ¿Ş: 3, ¿À: 4
+		if (totalmap[*Ay][*Ax] == 1) {
+			if (select <= 2 && *confirm_U != 1) {//À§ 1
 
-				direction = 1;
-				//ì¬ì„¤ì •
-				confirm_U = 1;
-				confirm_D = 0;
-				confirm_R = 0;
-				confirm_L = 0;
+				*direction = 1;
+				//Àç¼³Á¤
+				*confirm_U = 1;
+				*confirm_D = 0;
+				*confirm_R = 0;
+				*confirm_L = 0;
 			}
-			else if ((select > 2 && select <= 4) && confirm_D != 1) {//ì•„ë˜ 2
-				direction = 2;
-				//ì¬ì„¤ì •
-				confirm_U = 0;
-				confirm_D = 1;
-				confirm_R = 0;
-				confirm_L = 0;
+			else if ((select > 2 && select <= 4) && *confirm_D != 1) {//¾Æ·¡ 2
+				*direction = 2;
+				//Àç¼³Á¤
+				*confirm_U = 0;
+				*confirm_D = 1;
+				*confirm_R = 0;
+				*confirm_L = 0;
 			}
-			else if ((select > 4 && select <= 6) && confirm_L != 1) {//ì™¼ 3
-				direction = 3;
-				//ì¬ì„¤ì •
-				confirm_U = 0;
-				confirm_D = 0;
-				confirm_R = 0;
-				confirm_L = 1;
+			else if ((select > 4 && select <= 6) && *confirm_L != 1) {//¿Ş 3
+				*direction = 3;
+				//Àç¼³Á¤
+				*confirm_U = 0;
+				*confirm_D = 0;
+				*confirm_R = 0;
+				*confirm_L = 1;
 			}
-			else if ((select > 6 && select <= 8) && confirm_R != 1) {//ì˜¤ë¥¸ 4
-				direction = 4;
-				//ì¬ì„¤ì •
-				confirm_U = 0;
-				confirm_D = 0;
-				confirm_R = 0;
-				confirm_L = 1;
+			else if ((select > 6 && select <= 8) && *confirm_R != 1) {//¿À¸¥ 4
+				*direction = 4;
+				//Àç¼³Á¤
+				*confirm_U = 0;
+				*confirm_D = 0;
+				*confirm_R = 0;
+				*confirm_L = 1;
 			}
-			Ax = tmpx;
-			Ay = tmpy;
+			*Ax = tmpx;
+			*Ay = tmpy;
 		}
 
 	}
 
-	/*Sleep(500);*/
-	//ì´ê±¸ì“°ë‹ˆê¹Œ í”Œë ˆì´ì–´ì˜ ì…ë ¥ì´ ë§ì´ ëŠë ¤ì§„ë‹¤ ì´ê²ƒë§ê³  ë”´ê±¸ ì¨ì•¼í•˜ë‚˜
+	
+	//ÀÌ°É¾²´Ï±î ÇÃ·¹ÀÌ¾îÀÇ ÀÔ·ÂÀÌ ¸¹ÀÌ ´À·ÁÁø´Ù ÀÌ°Í¸»°í µı°É ½á¾ßÇÏ³ª
 	totalmap[tmpy][tmpx] = 6;
-	totalmap[Ay][Ax] = 5;
+	totalmap[*Ay][*Ax] = 5;
 	cnt_ai++;
+	
 }

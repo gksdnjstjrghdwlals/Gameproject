@@ -124,7 +124,7 @@ void level_3() {
 
 int main() {
 	int question = 1;
-
+	int end_question = 1;
 	//프로그램의 실행 제어
 	while (RUN) {
 		while (question) {
@@ -171,25 +171,93 @@ int main() {
 		Sleep(300);
 		system("cls");
 		//메뉴만들것 if문으로 메뉴창 만들기
+
+		//음악
+		Beep(700, 100);
+		Beep(800, 100);
+		Beep(900, 100);
+
+
 		level_1();
 		stage_end();
 		if (gameover == 1) {
+			game_OVER_SCENE(game_OVER, 8, 76);
 			re_quest();
 			continue;
 		}
 
+		system("cls");
+		draw_cutscene2(cut_scene3, 20, 50);
+		Sleep(1000);
+		system("cls");
+
+		system("cls");
+		draw_cutscene2(cut_scene4, 20, 50);
+		Sleep(1000);
+		system("cls");
+		
 		level_2();
 		stage_end();
 		if (gameover == 1) {
+			game_OVER_SCENE(game_OVER, 8, 76);
 			re_quest();
 			continue;
 		}
+		system("cls");
+		Sleep(200);
+		draw_cutscene2(cut_scene5, 20, 50);
+		Sleep(1000);
+		system("cls");
+		
 
 		level_3();
 		stage_end();
 		if (gameover == 1) {
+			game_OVER_SCENE(game_OVER, 8, 76);
 			re_quest();
 			continue;
+		}
+		draw_cutscene2(cut_scene6, 20, 50);
+		Sleep(1000);
+		system("cls");
+		while (end_question) {
+
+			draw_cutscene(opening, THEIGHT, TWIDTH);
+			
+			Sleep(500);
+			gotoxy(26, 20);
+			printf("게임을 다시하시겠습니까? Y/N");
+			if (_kbhit) {
+				int end_input = _getch();
+				switch (end_input) {
+				case'Y':
+				case'y':
+					end_question = 0;
+					break;
+				case 'N':
+				case 'n':
+					gotoxy(26, 20);
+					printf("게임을 종료하시겠습니까? Y/N");
+					int end_input = _getch();
+					switch (end_input) {
+					case'Y':
+					case'y':
+						exit(0);
+						break;
+					case 'N':
+					case 'n':
+						system("cls");
+						continue;
+
+
+					}
+
+
+				}
+
+			}
+
+
 		}
 		//-------------------------------------------------------2단계
 		//initialize

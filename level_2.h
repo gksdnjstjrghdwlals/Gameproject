@@ -176,6 +176,7 @@ void Pmove2() {
 		case UP:
 			Py2 -= 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(900, 60);
 				Py2 = tmpy;
 			}
 
@@ -184,12 +185,14 @@ void Pmove2() {
 
 			Py2 += 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(900, 60);
 				Py2 = tmpy;
 			}
 			break;
 		case LEFT:
 			Px2 -= 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(900, 60);
 				Px2 = tmpx;
 			}
 
@@ -197,6 +200,7 @@ void Pmove2() {
 		case RIGHT:
 			Px2 += 1;
 			if (totalmap2[Py2][Px2] == 1) {
+				Beep(900, 60);
 				Px2 = tmpx;
 			}
 
@@ -240,7 +244,7 @@ void bart_detect2() {
 		premise = 0;
 
 	}
-	else {
+	else if (BART_CLEAR_CNT < AI_BART_CLEAR_CNT) {
 		gameover = 1;
 		premise = 0;
 	}

@@ -151,7 +151,42 @@ void draw_cutscene(int map[][TWIDTH], int height, int width) {//int로 바꾼다
 		printf("\n");
 	}
 }
+void draw_cutscene2(int map[][50], int height, int width) {//int로 바꾼다
 
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {//조건문으로 각 디지털값에 따른 문자를 출력한다.
+			if (map[i][j] == 1) {
+				change_color(6);
+				printf("■");
+			}
+			else if (map[i][j] == 0) {
+
+				printf("  ");
+			}
+
+
+		}
+		printf("\n");
+	}
+}
+void game_OVER_SCENE(int map[][76], int height, int width) {//int로 바꾼다
+
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {//조건문으로 각 디지털값에 따른 문자를 출력한다.
+			if (map[i][j] == 1) {
+				change_color(6);
+				printf("■");
+			}
+			else if (map[i][j] == 0) {
+
+				printf("  ");
+			}
+
+
+		}
+		printf("\n");
+	}
+}
 
 void re_quest() {
 	printf("게임오버\n");
